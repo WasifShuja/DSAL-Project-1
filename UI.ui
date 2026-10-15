@@ -1,0 +1,260 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1250</width>
+    <height>820</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>CS200 - Data Structures &amp; Algorithms Project 1 (PyQt6)</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <layout class="QHBoxLayout" name="horizontalLayout">
+    <!-- Left Sidebar: Control Panel -->
+    <item>
+     <widget class="QScrollArea" name="scrollArea">
+      <property name="widgetResizable">
+       <bool>true</bool>
+      </property>
+      <property name="minimumWidth">
+       <number>360</number>
+      </property>
+      <property name="maximumWidth">
+       <number>410</number>
+      </property>
+      <widget class="QWidget" name="scrollAreaWidgetContents">
+       <layout class="QVBoxLayout" name="verticalLayout_sidebar">
+        
+        <!-- 1. Dataset Control -->
+        <item>
+         <widget class="QGroupBox" name="groupBoxData">
+          <property name="title">
+           <string>1. Dataset Control</string>
+          </property>
+          <layout class="QVBoxLayout" name="verticalLayout_data">
+           <item>
+            <widget class="QPushButton" name="btnLoadCsv">
+             <property name="text">
+              <string>Load CSV Dataset</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLabel" name="lblRecordCount">
+             <property name="text">
+              <string>Dataset not loaded (0 rows)</string>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+        </item>
+
+        <!-- 2. Searching & Filtering -->
+        <item>
+         <widget class="QGroupBox" name="groupBoxSearch">
+          <property name="title">
+           <string>2. Searching &amp; Filtering</string>
+          </property>
+          <layout class="QVBoxLayout" name="verticalLayout_search">
+           <item>
+            <layout class="QFormLayout" name="formLayoutSearch">
+             <item row="0" column="0">
+              <widget class="QLabel" name="lblSearchCol">
+               <property name="text">
+                <string>Column:</string>
+               </property>
+              </widget>
+             </item>
+             <item row="0" column="1">
+              <widget class="QComboBox" name="comboSearchColumn"/>
+             </item>
+             <item row="1" column="0">
+              <widget class="QLabel" name="lblFilterType">
+               <property name="text">
+                <string>Filter Rule:</string>
+               </property>
+              </widget>
+             </item>
+             <item row="1" column="1">
+              <widget class="QComboBox" name="comboFilterType">
+               <item><property name="text"><string>Contains</string></property></item>
+               <item><property name="text"><string>Starts With</string></property></item>
+               <item><property name="text"><string>Ends With</string></property></item>
+               <item><property name="text"><string>Exact Match</string></property></item>
+              </widget>
+             </item>
+             <item row="2" column="0">
+              <widget class="QLabel" name="lblQuery">
+               <property name="text">
+                <string>Query:</string>
+               </property>
+              </widget>
+             </item>
+             <item row="2" column="1">
+              <widget class="QLineEdit" name="txtSearchQuery"/>
+             </item>
+            </layout>
+           </item>
+           <item>
+            <layout class="QHBoxLayout" name="horizontalLayoutComposite">
+             <item>
+              <widget class="QPushButton" name="btnSearch">
+               <property name="text">
+                <string>Search</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QComboBox" name="comboCompositeOp">
+               <item><property name="text"><string>AND</string></property></item>
+               <item><property name="text"><string>OR</string></property></item>
+               <item><property name="text"><string>NOT</string></property></item>
+              </widget>
+             </item>
+            </layout>
+           </item>
+           <item>
+            <widget class="QPushButton" name="btnResetSearch">
+             <property name="text">
+              <string>Reset Search/Filter</string>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+        </item>
+
+        <!-- 3. Sorting & Benchmarking -->
+        <item>
+         <widget class="QGroupBox" name="groupBoxSort">
+          <property name="title">
+           <string>3. Sorting &amp; Performance</string>
+          </property>
+          <layout class="QVBoxLayout" name="verticalLayout_sort">
+           <item>
+            <layout class="QFormLayout" name="formLayoutSort">
+             <item row="0" column="0">
+              <widget class="QLabel" name="lblSortCol">
+               <property name="text">
+                <string>Column:</string>
+               </property>
+              </widget>
+             </item>
+             <item row="0" column="1">
+              <widget class="QComboBox" name="comboSortColumn"/>
+             </item>
+             <item row="1" column="0">
+              <widget class="QLabel" name="lblSortAlgo">
+               <property name="text">
+                <string>Algorithm:</string>
+               </property>
+              </widget>
+             </item>
+             <item row="1" column="1">
+              <widget class="QComboBox" name="comboSortAlgorithm"/>
+             </item>
+             <item row="2" column="0">
+              <widget class="QLabel" name="lblSortScope">
+               <property name="text">
+                <string>Sort Scope:</string>
+               </property>
+              </widget>
+             </item>
+             <item row="2" column="1">
+              <widget class="QComboBox" name="comboSortScope">
+               <item><property name="text"><string>Full Dataset</string></property></item>
+               <item><property name="text"><string>Filtered Results</string></property></item>
+              </widget>
+             </item>
+            </layout>
+           </item>
+           <item>
+            <layout class="QHBoxLayout" name="horizontalLayoutSortBtns">
+             <item>
+              <widget class="QPushButton" name="btnSort">
+               <property name="text">
+                <string>Sort Column</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QPushButton" name="btnMultiSort">
+               <property name="text">
+                <string>Multi-Level...</string>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </item>
+           <item>
+            <widget class="QPushButton" name="btnBenchmark">
+             <property name="text">
+              <string>Run Benchmark (All Algos)</string>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+        </item>
+
+        <!-- 4. Execution Metrics Panel -->
+        <item>
+         <widget class="QGroupBox" name="groupBoxMetrics">
+          <property name="title">
+           <string>4. Execution Metrics</string>
+          </property>
+          <layout class="QFormLayout" name="formLayoutMetrics">
+           <item row="0" column="0"><widget class="QLabel" name="m1"><property name="text"><string>Time Taken:</string></property></widget></item>
+           <item row="0" column="1"><widget class="QLabel" name="lblTimeResult"><property name="text"><string>-</string></property></widget></item>
+           <item row="1" column="0"><widget class="QLabel" name="m2"><property name="text"><string>Comparisons:</string></property></widget></item>
+           <item row="1" column="1"><widget class="QLabel" name="lblCompResult"><property name="text"><string>-</string></property></widget></item>
+           <item row="2" column="0"><widget class="QLabel" name="m3"><property name="text"><string>Swaps:</string></property></widget></item>
+           <item row="2" column="1"><widget class="QLabel" name="lblSwapResult"><property name="text"><string>-</string></property></widget></item>
+           <item row="3" column="0"><widget class="QLabel" name="m4"><property name="text"><string>Time Complexity:</string></property></widget></item>
+           <item row="3" column="1"><widget class="QLabel" name="lblComplexityResult"><property name="text"><string>-</string></property></widget></item>
+           <item row="4" column="0"><widget class="QLabel" name="m5"><property name="text"><string>Stability:</string></property></widget></item>
+           <item row="4" column="1"><widget class="QLabel" name="lblStabilityResult"><property name="text"><string>-</string></property></widget></item>
+          </layout>
+         </widget>
+        </item>
+
+       </layout>
+      </widget>
+     </widget>
+    </item>
+
+    <!-- Right Main Area: Entity Table View -->
+    <item>
+     <widget class="QTableWidget" name="tableWidget">
+      <property name="alternatingRowColors">
+       <bool>true</bool>
+      </property>
+      <property name="selectionBehavior">
+       <enum>QAbstractItemView::SelectRows</enum>
+      </property>
+     </widget>
+    </item>
+
+   </layout>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>1250</width>
+     <height>22</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
